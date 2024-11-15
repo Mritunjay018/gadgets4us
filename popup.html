@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+    <style>
+        body {
+              background-color:#999999;
+              font-family: 'Oswald', sans-serif;
+      }
+p
+{
+  color:#000000;
+  font-size:20px;
+}
+
+.textBox
+{
+  height:30px;
+  width:300px;
+}
+
+button
+{
+  height:30px;
+  width:150px;
+  border-radius:8px;
+  padding:10px;
+  font-size:20px;
+  font-family: 'Oswald', sans-serif;
+  height:52px;
+  cursor:pointer;
+  background-color:#FF9933;
+}
+    </style>
+    <script>
+        function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body style="background-color: black; color: white; font-size: 20px;">
+    <button onclick="copyToClipboard('#p1')">Copy Code</button>
+
+<div id="p1">
+    <div class="sectio  n-content"><div class="code-widgets single-file "><div class="sidebar"></div><div class="preview-container"><div class="preview-pane active" id="code-widget-141065"><div class="preview-header"><div class="clearfix"><div class="buttons btn-group btn-group-default"><a class="btn btn-primary btn-xs" data-container="body" href="/projecthub/code_files/141065/download" rel="tooltip" title="" data-original-title="Download"><i class="fa fa-cloud-download"></i></a></div></div></div><div class="preview-body pygments-syntax arduino" style="height: 440px;"><div class="highlight"><pre><span id="line-1"><span class="c1">// variables</span>
+</span><span id="line-2"><span class="kr">int</span> <span class="n">GREEN</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span id="line-3"><span class="kr">int</span> <span class="n">YELLOW</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span><span id="line-4"><span class="kr">int</span> <span class="n">RED</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span><span id="line-5"><span class="kr">int</span> <span class="n">DELAY_GREEN</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+</span><span id="line-6"><span class="kr">int</span> <span class="n">DELAY_YELLOW</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">;</span>
+</span><span id="line-7"><span class="kr">int</span> <span class="n">DELAY_RED</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+</span><span id="line-8">
+</span><span id="line-9">
+</span><span id="line-10"><span class="c1">// basic functions</span>
+</span><span id="line-11"><span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span>
+</span><span id="line-12"><span class="p">{</span>
+</span><span id="line-13">  <span class="nf">pinMode</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
+</span><span id="line-14">  <span class="nf">pinMode</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
+</span><span id="line-15">  <span class="nf">pinMode</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
+</span><span id="line-16"><span class="p">}</span>
+</span><span id="line-17">
+</span><span id="line-18"><span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span>
+</span><span id="line-19"><span class="p">{</span>
+</span><span id="line-20">  <span class="n">green_light</span><span class="p">();</span>
+</span><span id="line-21">  <span class="nf">delay</span><span class="p">(</span><span class="n">DELAY_GREEN</span><span class="p">);</span>
+</span><span id="line-22">  <span class="n">yellow_light</span><span class="p">();</span>
+</span><span id="line-23">  <span class="nf">delay</span><span class="p">(</span><span class="n">DELAY_YELLOW</span><span class="p">);</span>
+</span><span id="line-24">  <span class="n">red_light</span><span class="p">();</span>
+</span><span id="line-25">  <span class="nf">delay</span><span class="p">(</span><span class="n">DELAY_RED</span><span class="p">);</span>
+</span><span id="line-26"><span class="p">}</span>
+</span><span id="line-27">
+</span><span id="line-28"><span class="kr">void</span> <span class="nf">green_light</span><span class="p">()</span>
+</span><span id="line-29"><span class="p">{</span>
+</span><span id="line-30">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
+</span><span id="line-31">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+</span><span id="line-32">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+</span><span id="line-33"><span class="p">}</span>
+</span><span id="line-34">
+</span><span id="line-35"><span class="kr">void</span> <span class="nf">yellow_light</span><span class="p">()</span>
+</span><span id="line-36"><span class="p">{</span>
+</span><span id="line-37">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+</span><span id="line-38">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
+</span><span id="line-39">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+</span><span id="line-40"><span class="p">}</span>
+</span><span id="line-41">
+</span><span id="line-42"><span class="kr">void</span> <span class="nf">red_light</span><span class="p">()</span>
+</span><span id="line-43"><span class="p">{</span>
+</span><span id="line-44">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+</span><span id="line-45">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+</span><span id="line-46">  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
+</span><span id="line-47"><span class="p">}</span>
+</span></pre></div></div></div></div></div></div></div>
+</body>
+</html>

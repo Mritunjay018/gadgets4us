@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+		
+		
+		
+		<script src="js/component.js"></script>
+		<script src="js/customShapes.js"></script>
+		<script src="js/inputHandler.js"></script>
+		<script src="js/logicDisplay.js"></script>
+		<script src="js/graphicDisplay.js"></script>
+		
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var h = $(window).height() - 100;
+				var w = $(window).width() ;
+				var gd = new GraphicDisplay("CADCanvas", w, h);
+				gd.unitMeasure = "m";
+				gd.unitConversionFactor = 1/100; 
+				gd.showOrigin = false;
+				//gd.readonly = true;
+				
+				// $('#CADCanvas').height(h)
+				console.log({h,w})
+				// $('#CADCanvas').width(w)
+				// Button behaviour
+				$("#gd_navigate").click(function(){gd.setMode(gd.MODES.NAVIGATE);});
+				$("#gd_move").click(function(){gd.setMode(gd.MODES.MOVE);});
+				$("#gd_edit").click(function(){gd.setMode(gd.MODES.EDIT);});
+				$("#gd_delete").click(function(){gd.setMode(gd.MODES.DELETE);});
+				
+				$("#gd_zoomin").click(function(){gd.zoomIn();});
+				$("#gd_zoomout").click(function(){gd.zoomOut();});
+				
+				$("#gd_addpoint").click(function(){gd.setMode(gd.MODES.ADDPOINT);});
+				$("#gd_addline").click(function(){gd.setMode(gd.MODES.ADDLINE);});
+				$("#gd_addcircle").click(function(){gd.setMode(gd.MODES.ADDCIRCLE);});
+				$("#gd_addarc").click(function(){gd.setMode(gd.MODES.ADDARC);});
+				$("#gd_addrectangle").click(function(){gd.setMode(gd.MODES.ADDRECTANGLE);});
+				$("#gd_addmeasure").click(function(){gd.setMode(gd.MODES.ADDMEASURE);});
+				$("#gd_addlabel").click(function(){gd.setMode(gd.MODES.ADDLABEL);});
+				
+				// # # # CUSTOM BINDING # # # 
+				$("#gd_add_serbatoio_orizzontale").click(function(){
+					gd.setModeShape(getShapeSerbatoioOrizzontale);
+				});
+
+				$("#gd_add_serbatoio_verticale").click(function(){
+					gd.setModeShape(getShapeSerbatoioVerticale);
+				});
+
+				$("#gd_add_edificio").click(function(){
+					gd.setModeShape(getShapeEdificio);
+				});
+
+				$("#gd_add_albero").click(function(){
+					gd.setModeShape(getShapeAlbero);
+				});
+
+				$("#gd_add_ostacolo").click(function(){
+					gd.setModeShape(getShapeOstacolo);
+				});
+
+				$("#gd_add_autobotte").click(function(){
+					gd.setModeShape(getShapeAutobotte);
+				});
+				// # # # END CUSTOM BINDING # # # 
+				
+				initCAD(gd);
+			});
+		</script>
+
+		<body style="background-color:rgb(0, 0, 0); margin-top: 0%;">
+		<style type="text/css">
+		#CADDisplay {
+			border: 3px inset #ccc;
+		}
+		input{
+			margin: 10px 0.9vw;
+		}
+		</style>
+	</head>
+	<body style="background-color:white;">
+		
+		<br>
+		<canvas id="CADCanvas"
+				width="1338"
+				height="422"
+				onContextMenu="javascript: return false;"
+				tabindex="1"></canvas>
+		<input id="gd_navigate" class="btn btn-dark" type="button" value="Navigate" />
+		<input id="gd_move" class="btn btn-dark" type="button" value="Move" />
+		<input id="gd_edit" class="btn btn-dark" type="button" value="Modification" />
+		<input id="gd_delete" class="btn btn-dark" type="button" value="Delete" />
+		|
+		<input id="gd_zoomout" class="btn btn-dark" type="button" value="-" />
+		<input id="gd_zoomin" class="btn btn-dark" type="button" value="+" />
+		|
+		<input id="gd_addpoint" class="btn btn-dark" type="button" value="Point" />
+		<input id="gd_addline" class="btn btn-dark" type="button" value="line" />
+		<input id="gd_addcircle" class="btn btn-dark" type="button" value="Circle" />
+		<input id="gd_addarc" class="btn btn-dark" type="button" value="arc" />
+		<input id="gd_addrectangle" class="btn btn-dark" type="button" value="rectangle" />
+		|
+		<input id="gd_addmeasure" class="btn btn-dark" class="btn btn-dark" type="button" value="measure" />
+		<input id="gd_addlabel" class="btn btn-dark" type="button" value="label" />
+		<input id="gd_addlabel" class="btn btn-dark" type="button" value="Print" />
+	</body>
+</html>
