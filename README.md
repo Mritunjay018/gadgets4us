@@ -9,4 +9,4 @@ we made a application for 2D designing , we made it with the help of html canvas
         Rectangle , Circle , Line , point , Arc
 
         Functions:
-        Navigate , Label , Zoom-in , zoom-out , Delete , Move , Modification , Measure
+        Navigate , Label , Zoom-in , zoom-out , Delete , Move , Modification , Measure..
